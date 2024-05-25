@@ -67,5 +67,5 @@ func isValidCmd(cmd string) {
 		}
 	}
 
-	fmt.Printf("%s[:]? not found\n", cmd)
+	fmt.Printf("%s: command not found\n", cmd)
 }
