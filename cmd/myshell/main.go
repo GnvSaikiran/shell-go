@@ -45,7 +45,10 @@ func main() {
 func isExecutable(cmd string, args string) {
 	_ = os.Getenv("PATH")
 	ex := exec.Command(cmd, args)
-	ex.Run()
+	err := ex.Run()
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
 func isValidCmd(cmd string) {
