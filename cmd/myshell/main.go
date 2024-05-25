@@ -58,7 +58,6 @@ func isValidCmd(cmd string) {
 	fmt.Println(dirs)
 	for _, dir := range dirs {
 		files, _ := os.ReadDir(dir)
-		fmt.Println(files)
 
 		for _, file := range files {
 			if cmd == file.Name() {
