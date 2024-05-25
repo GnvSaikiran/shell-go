@@ -31,29 +31,33 @@ func main() {
 			}
 		case "type":
 			if len(args) > 1 {
-				isValidCmd(args[1])
+				printType(args[1])
 			}
 		case "exit":
 			os.Exit(0)
 		default:
-			isExecutable(cmd, args[1])
-			fmt.Printf("%s: command not found\n", cmd)
+			runExecutable(args)
 		}
 	}
 }
 
-func isExecutable(cmd string, args string) {
-	_ = os.Getenv("PATH")
-	ex := exec.Command(cmd, args)
+func runExecutable(args []string) {
+	cmd := strings.TrimSpace(args[0])
+	var ex *exec.Cmd
+	if len(args) < 2 {
+		ex = exec.Command(cmd)
+	} else {
+		ex = exec.Command(cmd, args[1])
+	}
 	ex.Stdin = os.Stdin
 	ex.Stdout = os.Stdout
 	err := ex.Run()
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("%s: command not found\n", cmd)
 	}
 }
 
-func isValidCmd(cmd string) {
+func printType(cmd string) {
 	builtin_cmds := []string{
 		"echo", "exit", "type",
 	}
