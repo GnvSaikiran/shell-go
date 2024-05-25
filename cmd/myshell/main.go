@@ -57,7 +57,7 @@ func isValidCmd(cmd string) {
 	for _, dir := range dirs {
 		files, err := os.ReadDir(dir)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Printf("here: %s", err.Error())
 			return
 		}
 
