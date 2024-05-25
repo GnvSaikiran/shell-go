@@ -64,7 +64,7 @@ func isValidCmd(cmd string) {
 		for _, file := range files {
 			if cmd == file.Name() {
 				if !file.IsDir() {
-					fmt.Printf("%s is %s/%s", cmd, dir, file.Name())
+					fmt.Printf("%s is %s/%s\n", cmd, dir, file.Name())
 					return
 				}
 			}
