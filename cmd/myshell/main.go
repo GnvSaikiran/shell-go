@@ -36,15 +36,15 @@ func main() {
 		case "exit":
 			os.Exit(0)
 		default:
-			isExecutable(args)
+			isExecutable(cmd, args[1])
 			fmt.Printf("%s: command not found\n", cmd)
 		}
 	}
 }
 
-func isExecutable(args []string) {
+func isExecutable(cmd string, args string) {
 	_ = os.Getenv("PATH")
-	exec.Command(args[0], args[1])
+	exec.Command(cmd, args)
 }
 
 func isValidCmd(cmd string) {
