@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"os/exec"
 	"strings"
 )
 
@@ -35,7 +36,7 @@ func main() {
 		case "exit":
 			os.Exit(0)
 		default:
-			fmt.Println(os.Getenv("PATH"))
+			isExecutable(args)
 			fmt.Printf("%s: command not found\n", cmd)
 		}
 	}
@@ -43,6 +44,7 @@ func main() {
 
 func isExecutable(args []string) {
 	_ = os.Getenv("PATH")
+	exec.Command(args[0], args[1])
 }
 
 func isValidCmd(cmd string) {
