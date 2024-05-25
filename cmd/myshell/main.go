@@ -40,6 +40,10 @@ func main() {
 	}
 }
 
+func isExecutable(args []string) {
+	_ = os.Getenv("PATH")
+}
+
 func isValidCmd(cmd string) {
 	builtin_cmds := []string{
 		"echo", "exit", "type",
@@ -58,6 +62,7 @@ func isValidCmd(cmd string) {
 		files, _ := os.ReadDir(dir)
 
 		for _, file := range files {
+			file.Type().Type()
 			if cmd == file.Name() {
 				if !file.IsDir() {
 					fmt.Printf("%s is %s/%s\n", cmd, dir, file.Name())
