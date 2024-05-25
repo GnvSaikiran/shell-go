@@ -75,7 +75,6 @@ func printType(cmd string) {
 		files, _ := os.ReadDir(dir)
 
 		for _, file := range files {
-			file.Type().Type()
 			if cmd == file.Name() {
 				if !file.IsDir() {
 					fmt.Printf("%s is %s/%s\n", cmd, dir, file.Name())
