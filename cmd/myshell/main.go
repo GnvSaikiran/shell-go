@@ -44,7 +44,8 @@ func main() {
 
 func isExecutable(cmd string, args string) {
 	_ = os.Getenv("PATH")
-	exec.Command(cmd, args)
+	ex := exec.Command(cmd, args)
+	ex.Run()
 }
 
 func isValidCmd(cmd string) {
