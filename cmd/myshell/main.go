@@ -53,9 +53,7 @@ func isValidCmd(cmd string) {
 	}
 
 	path := os.Getenv("PATH")
-	fmt.Println(path)
 	dirs := strings.Split(path, ":")
-	fmt.Println(dirs)
 	for _, dir := range dirs {
 		files, _ := os.ReadDir(dir)
 
