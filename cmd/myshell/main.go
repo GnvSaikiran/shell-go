@@ -35,6 +35,7 @@ func main() {
 		case "exit":
 			os.Exit(0)
 		default:
+			fmt.Println(os.Getenv("PATH"))
 			fmt.Printf("%s: command not found\n", cmd)
 		}
 	}
